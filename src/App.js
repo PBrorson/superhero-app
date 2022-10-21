@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './components/shared/Layout';
+import AllSuperHeroes from './pages/AllSuperHeroes';
+import {Route,Routes} from 'react-router-dom'
+import AddSuperHero from './pages/AddSuperHero';
+import UpdateSuperHero from './pages/UpdateSuperHero';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Layout>
+    <Routes>
+        <Route path="/" element={<AllSuperHeroes></AllSuperHeroes>}></Route>  
+
+    </Routes>
+    <Routes>
+        <Route path="/add-superhero" element={<AddSuperHero></AddSuperHero>}></Route>  
+    </Routes>
+    <Routes>
+        <Route path="/update-superhero/:id" element={<UpdateSuperHero></UpdateSuperHero>}></Route>  
+    </Routes>
+ 
+  
+      </Layout>
+
+
+
+
   );
 }
 
